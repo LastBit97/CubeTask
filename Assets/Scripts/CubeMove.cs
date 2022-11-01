@@ -4,15 +4,19 @@ using UnityEngine;
 
 public class CubeMove : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private Rigidbody _rb;
+    [SerializeField] private float _speed;
+    [SerializeField] private float _distance;
     void Start()
     {
-        
+        _rb = GetComponent<Rigidbody>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
-        
+        if (_rb.position.x <= _distance)
+        {
+            _rb.MovePosition(_rb.position + Vector3.right * Time.fixedDeltaTime * _speed);
+        }
     }
 }

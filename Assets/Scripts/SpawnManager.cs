@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private GameObject _cubePrefab;
+    [SerializeField] private float _spawnPosX;
+    [SerializeField] private float _spawnPosY;
+    [SerializeField] private float _spawnPosZ;
+    [SerializeField] private float _startDelay;
+    [SerializeField] private float _spawnInterval = 2f;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        
+        InvokeRepeating(nameof(SpawnCube), _startDelay, _spawnInterval);
+    }
+    private void SpawnCube()
+    {
+        Vector3 spawnPos = new Vector3(_spawnPosX, _spawnPosY, _spawnPosZ);
+        Instantiate(_cubePrefab, spawnPos, _cubePrefab.transform.rotation);
     }
 }
