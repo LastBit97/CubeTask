@@ -113,8 +113,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _rb: {fileID: 0}
-  _speed: 5
-  _distance: 10
+  _speed: 8
+  _distance: 20
 --- !u!54 &3520149491136938450
 Rigidbody:
   m_ObjectHideFlags: 0
